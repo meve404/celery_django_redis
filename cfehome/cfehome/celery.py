@@ -1,6 +1,6 @@
 import os
 from celery import Celery
-from decouple import config
+from celery.schedules import crontab
 
 # set the default Django settings module for the 'celery' program.
 # this is also used in manage.py
@@ -16,3 +16,26 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
+
+# Below is for illustration purposes. We 
+# configured so we can adjust scheduling 
+# in the Django admin to manage all 
+# Periodic Tasks like below
+
+app.conf.beat_schedule = {
+    'multiply-task-crontab': {
+        'task': 'multiply_two_numbers',
+        'schedule': crontab(hour=7, minute=30, day_of_week=1),
+        'args': (16, 16),
+    },
+    'multiply-every-5-seconds': {
+        'task': 'multiply_two_numbers',
+        'schedule': 5.0,
+        'args': (16, 16)
+    },
+    'add-every-30-seconds': {
+        'task': 'movies.tasks.add',
+        'schedule': 30.0,
+        'args': (16, 16)
+    },
+}
