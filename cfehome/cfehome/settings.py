@@ -26,9 +26,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    
+    # Applications
     'django_celery_beat',
     'django_celery_results',
+    'movies.apps.MoviesConfig',
 ]
 
 # save Celery task results in Django's database
