@@ -4,3 +4,6 @@ Feel free to clone this repo if you want to learn the basics of integrating Djan
 
 ## Tutorial I followed
 Integrating Celery, Redis, and Django: [Celery + Redis + Django](https://www.codingforentrepreneurs.com/blog/celery-redis-django/)
+
+## Celery + Django
+Here are the Celery docs: [Celery + Django Docs](https://docs.celeryq.dev/en/stable/django/first-steps-with-django.html)
